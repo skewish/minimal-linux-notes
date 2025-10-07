@@ -1,0 +1,57 @@
+additional notes
+________________________________
+**for minimal-linux-new
+
+"disable" locations within the "make menuconfig" menu
+
+within linux make menuconfig:
+
+location:
+-> Enable loadable module support (CONFIG_MODULES [=n])
+	
+location:
+-> Device Drivers
+	-> Graphics support
+		-> Direct Rendering Manager (CONFIG_DRM [=n])
+
+within busybox make menuconfig:
+
+location:
+-> Networking Utilities
+	-> tc (CONFIG_TC [=n])
+
+
+make menuconfig will not work for busybox with Debian 13
+unless you edit the following file in busybox source code:
+
+~/scripts/kconfig/lxdialog/check-lxdialog.sh
+Line 50
+add "int" at the start of the line
+
+example, change:
+
+#include CURSES_LOC
+main() {}
+
+to:
+
+#include CURSES_LOC
+int main() {}
+
+make menuconfig will then work
+________________________________
+**for minimal-linux-net:
+
+ping by domain name will not work without /lib64/libnss_dns.so.2
+which is included in glibc
+
+libc-dev?
+________________________________
+**for minimal-linux-usb
+
+can comment out on usb
+# proc /proc proc defaults 0 0
+# sysfs /sys sysfs defaults 0 0
+# tmpfs /run tmpfs defaults 0 0
+
+@linuxrc not needed on usb
