@@ -42,6 +42,8 @@ make menuconfig will then work
 ________________________________
 **for minimal-linux-net:
 
+not intended for use on the usb version
+
 ping by domain name will not work without /lib64/libnss_dns.so.2
 which is included in glibc
 
