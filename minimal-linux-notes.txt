@@ -64,4 +64,5 @@ ________________________________
 **for minimal-linux-src
 
 minimal-linux-src can be placed on a usb in the same way as minimal-linux-new.
-minor modifications needed.  boot is slowed, however, because of sulogin (backtrace)
+minor modifications needed.  boot is slowed, however, because of sulogin (backtrace).
+please be patient.
